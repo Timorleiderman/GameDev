@@ -14,25 +14,25 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "Jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "Fall",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "Run",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -40,6 +40,7 @@ radius = 14.0
 height = 28.0
 
 [node name="Player" type="KinematicBody2D"]
+position = Vector2( 4.74336, 6.85152 )
 script = ExtResource( 10 )
 __meta__ = {
 "_edit_group_": true
@@ -54,16 +55,18 @@ playing = true
 position = Vector2( 0, 4 )
 shape = SubResource( 2 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-smoothing_enabled = true
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+show_behind_parent = true
 motion_scale = Vector2( 0.1, 0.1 )
 motion_mirroring = Vector2( 640, 640 )
 
 [node name="Sky" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource( 11 )
 centered = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+smoothing_enabled = true
+smoothing_speed = 10.0
