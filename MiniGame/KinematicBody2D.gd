@@ -23,6 +23,7 @@ func _physics_process(delta):
 		motion.x = min(motion.x+ACCELERATION, MAX_SPEED)
 		$Sprite.flip_h = false
 		$Sprite.play("Run")
+		
 	elif Input.is_action_pressed("ui_left"):
 		motion.x = max(motion.x-ACCELERATION, -MAX_SPEED)
 		$Sprite.flip_h = true
@@ -49,4 +50,15 @@ func _physics_process(delta):
 	motion = move_and_slide(motion, UP)
 	pass
 
+func _process(delta):
+	$HUD/Coins.set_text("COINS:" + str(Globals.coins))
 
+
+
+
+func _on_Restart_pressed():
+	get_tree().change_scene("res://World" + str(Globals.currentStage) + ".tscn")
+
+
+func _on_MainMenu_pressed():
+	get_tree().change_scene("res://StartMenu.tscn")

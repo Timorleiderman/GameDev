@@ -1,11 +1,11 @@
 # WorldComplete.gd
 extends Area2D
 
-export(String, FILE, "*.tscn") var next_world_scene
 
 func _physics_process(delta):
 	var bodies = get_overlapping_bodies()
 	for body in bodies:
+		Globals.currentStage += 1
 		if body.name == "Player":
-			get_tree().change_scene(next_world_scene)
+			get_tree().change_scene("res://World" + str(Globals.currentStage) + ".tscn")
 			

@@ -1,5 +1,8 @@
-# StartMenu.gd
-extends Control
+extends Area2D
+
+
+onready var anim_player: AnimationPlayer = get_node("AnimationPlayer")
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -12,14 +15,7 @@ func _ready():
 #	pass
 
 
-func _on_StartButton_pressed():
-	Globals.currentStage = 1
-	Globals.coins = 0
-	get_tree().change_scene("res://World.tscn")
-
-func _on_QuitButton_pressed():
-	get_tree().quit()
-
-
-func _on_Back2Game_pressed():
+func _on_Coin_body_entered(body):
+	anim_player.play("fade")
+	Globals.coins += 1
 	pass # Replace with function body.
