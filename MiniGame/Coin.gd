@@ -16,6 +16,12 @@ func _ready():
 
 
 func _on_Coin_body_entered(body):
-	anim_player.play("fade")
-	Globals.coins += 1
-	pass # Replace with function body.
+	if body.name == "Player":
+		anim_player.play("fade")
+		
+		Globals.coins += 1
+
+
+	
+
+

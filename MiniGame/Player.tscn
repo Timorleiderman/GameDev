@@ -21,14 +21,14 @@ animations = [ {
 "name": "Jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "Fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Idle",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 9 ) ],
@@ -46,6 +46,7 @@ font_data = ExtResource( 13 )
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 4.74336, 6.85152 )
+collision_layer = 3
 script = ExtResource( 10 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]

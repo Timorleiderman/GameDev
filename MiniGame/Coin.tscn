@@ -20,12 +20,12 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.7, 1.4 ),
 "transitions": PoolRealArray( 1, 1.8025, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -14 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, -10 ), Vector2( 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=3]
 resource_name = "fade"
-length = 0.406
+length = 1.016
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -33,7 +33,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 2.37842, 0.0947324 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -45,22 +45,36 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.4 ),
+"times": PoolRealArray( 1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "queue_free"
 } ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("coin:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 0.554785 ),
+"update": 0,
+"values": [ Vector2( 0, -8 ), Vector2( 0, -20 ) ]
+}
 
 [node name="Coin" type="Area2D"]
-collision_layer = 2
+collision_layer = 4
+collision_mask = 9
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="coin" type="Sprite" parent="."]
+position = Vector2( 0, -5 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 
